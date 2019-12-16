@@ -1,6 +1,7 @@
 const redis = require('redis');
-const REDIS_PORT = process.env.PORT || 6379;
-const client = redis.createClient(REDIS_PORT);
+//const REDIS_PORT = process.env.PORT || 6379;
+//const client = redis.createClient(REDIS_PORT);
+const client = require('redis').createClient(process.env.REDIS_URL);
 
 function savingUsers (storedName, data) {
     console.log("Setting data to Redis...");
