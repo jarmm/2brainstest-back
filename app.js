@@ -14,6 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', require('./routes/users'));
 
+app.get('/', function (req, res) {
+    res.send('Hello World!');
+  });
+  
 // Vue Middleware
 const history = require('connect-history-api-fallback');
 app.use(history());
