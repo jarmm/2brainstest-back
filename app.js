@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import config from './config';
 import express from 'express';
 import morgan from 'morgan';
