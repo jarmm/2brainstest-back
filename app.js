@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 const app = express();
+const path = require('path');
 
 // Middleware
 app.use(morgan('tiny'));
@@ -12,6 +13,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', require('./routes/users'));
+
+// Vue Middleware
+const history = require('connect-history-api-fallback');
+app.use(history());
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.listen(config.port, (err, res) => {
     if (err) {
